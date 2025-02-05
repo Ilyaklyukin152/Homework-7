@@ -9,8 +9,12 @@ public class Main {
         checkValidSystemAndPrint(1, 2025);
 
         printTask(3);
-        int deliveryDays = getDeliveryDays(95);
-        System.out.println("Потребуется дней: " + deliveryDays);
+        int deliveryDays = getDeliveryDays(120);
+        if (deliveryDays == -1) {
+            System.out.println("Доставки нет");
+        } else {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        }
     }
 
     public static void checkIsLeapYearAndPrint(int year) {
@@ -46,7 +50,7 @@ public class Main {
         } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
             return 3;
         } else {
-            throw new RuntimeException("Доставки нет");
+            return -1;
         }
     }
 
